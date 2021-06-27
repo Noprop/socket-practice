@@ -19,7 +19,7 @@ int main() {
   server_address.sin_addr.s_addr = INADDR_ANY;
   
 
-  int conection_status = connect(network_socket, (struct sockaddr *) &server_address, sizeof(server_address));
+  int connection_status = connect(network_socket, (struct sockaddr *) &server_address, sizeof(server_address));
   // check for error with the connection
   if (connection_status == -1) {
     printf("There was an error making a connection to the remote socket \n\r");
@@ -27,13 +27,13 @@ int main() {
 
   // receive data from the server
   char server_response[256];
-  recv(network_socket, &server_response, sizeof(server_reponse), 0);
+  recv(network_socket, &server_response, sizeof(server_response), 0);
 
   // print out the server's respoinse
   printf("The server sent the data: %s\n", server_response);
 
   // and then close the socket
-  close(sock);
+  // close(network_socket);
 
   return 0;
 }
